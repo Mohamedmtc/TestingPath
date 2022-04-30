@@ -3,10 +3,10 @@ Create test project
 first create class library project then add the following Nuget Packages
 
     <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-     </ItemGroup>
+    	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    	<PackageReference Include="NUnit" Version="3.13.3" />
+    	<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    </ItemGroup>
 Test attributes
 ---------------
     [TestFixture] : Mark a class that contains tests
