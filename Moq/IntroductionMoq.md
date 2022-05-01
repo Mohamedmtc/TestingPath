@@ -22,3 +22,5 @@ we use moq like
 to allow moq to create moq for all nested properties  we can using
 
     var mockCreditScorer = new Mock<ICreditScorer>{ DefaultValue=DefaultValue.Mock };
+
+

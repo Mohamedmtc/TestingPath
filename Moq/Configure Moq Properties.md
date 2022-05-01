@@ -66,3 +66,30 @@ to tracking all properties in mocked class we can use
 
     var mockCreditScorer = new Mock<ICreditScorer>();
     mockCreditScorer.SetupAllProperties();
+
+verify property get or set
+--------------------------
+let assume the following interface
+
+    public interface ICreditScorer
+    {
+    	int Score { get; }
+    }
+
+ and we need to verify reading property value as
+
+    var mockCreditScorer = new Mock<ICreditScorer>();
+    // verify if readed
+    mockCreditScorer.VerifyGet(x => x.Score); 
+    // verify if readed once
+    mockCreditScorer.VerifyGet(x => x.Score,Times.Once); 
+
+as if we need to verify changing it value  as 
+
+    var mockCreditScorer = new Mock<ICreditScorer>();
+    // verify if set with any value
+    mockCreditScorer.VerifySet(x => x.Score= It.IsAny<int>());
+    // verify if set once 
+    mockCreditScorer.VerifyGet(x => x.Score= It.IsAny<int>() ,Times.Once); 
+    // verify if set with defined value value
+    mockCreditScorer.VerifySet(x => x.Score= 1);

@@ -64,3 +64,49 @@ we moq it as
 
             Assert.That(mockReturnValue, Is.Null);
         }
+
+Verify the method without parameters is called during test
+----------------------------------------------------------
+let we assume there is interface we will mock  as 
+
+    public interface IIdentityVerifier
+    {
+        void Initialize();
+    }
+and we need to verify Initialize method called as assertion
+
+
+    var mockIdentityVerifier = new Mock<IIdentityVerifier>();
+    mockIdentityVerifier.Verify(x => x.Initialize());
+
+Verify the method with parameters is called during test
+-------------------------------------------------------
+let we assume there is interface we will mock  as 
+
+    public interface IIdentityVerifier
+    {
+        bool Validate(string applicantName, int applicantAge, string applicantAddress);
+    }
+
+and we need to verify Validate method called as assertion
+
+
+    var mockIdentityVerifier = new Mock<IIdentityVerifier>();
+    // using certain parameters value
+    mockIdentityVerifier.Verify(x => x.Validate("Sarah",25,"133 Pluralsight Drive, Draper, Utah"));
+    // or using any paramters
+    mockIdentityVerifier.Verify(x => x.Validate(It.IsAny<string>(), It.IsAny<int>(),It.IsAny<string>()));
+
+verify number of method has been called 
+----------------------------------------
+we use over-loaded version of verify as 
+
+    var mockIdentityVerifier = new Mock<IIdentityVerifier>();
+    mockIdentityVerifier.Verify(x => x.Initialize(),Times.Once);
+
+
+Verify no unexpected calls where made
+-------------------------------------
+we need to verify all method called then we verify no other calls as
+
+    mockIdentityVerifier.VerifyNoOtherCalls();

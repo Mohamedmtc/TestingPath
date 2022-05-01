@@ -3,7 +3,7 @@ Asserting on Null Values
     string name = "Sarah";
     Assert.That(name, Is.Null); // fail
     Assert.That(name, Is.Not.Null); // pass
-Asserting on String Values
+Asserting on String Values 
 --------------------------
     string name = "Sarah";
     Assert.That(name, Is.Empty); // fail
