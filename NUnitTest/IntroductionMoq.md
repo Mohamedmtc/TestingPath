@@ -18,3 +18,7 @@ we use moq like
 
     var mockIdentityVerifier = new Mock<IIdentityVerifier>();
     var mockCreditScorer = new Mock<ICreditScorer>();
+
+to allow moq to create moq for all nested properties  we can using
+
+    var mockCreditScorer = new Mock<ICreditScorer>{ DefaultValue=DefaultValue.Mock };
